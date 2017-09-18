@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Babel test</title>
+    <style media="screen">
+      .errorBox {
+        border: 1px solid blue;
+        background-color: #55eebb;
+        margin: 1em;
+        padding: 2em;
+      }
+      .errorBox--invisible{
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <label> Name: <input id="name" type="text"/> </label>
+      <button id="submit_name">Type name then click</button>
+      <div id="content"></div>
+      <div id="error"class="errorBox--invisible" </div>
+    </main>
+
+    <script src="https://unpkg.com/babel-standalone">
+    </script>
+
+    <script type="text/babel" data-presets="latest">
+
+      const getMessage = (name) => `The Babel test is working fine ${name}`;
+      const button = document.getElementById('submit_name');
+      const messageArea = document.getElementById('error');
+      const contentArea = document.getElementById('content');
+
+      button.addEventListener('click', (evt) => {
+        messageArea.className = "errorBox--invisible";
+
+        var  name = document.getElementById("name").value;
+        contentArea.textContent = "";
+
+        if (name.length < 1) {
+          messageArea.textContent="Please enter your name";
+          messageArea.className = "errorBox";
+        }
+        else {
+        contentArea.textContent = getMessage(name);}
+    });
+    </script>
+
+  </body>
+ </html>
