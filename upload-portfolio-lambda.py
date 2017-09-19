@@ -41,7 +41,7 @@ def lambda_handler(event, context):
                 portfolio_bucket.upload_fileobj(obj, nm, ExtraArgs={'Content-Type': mimetypes.guess_type(nm)[0]})
                 portfolio_bucket.Object(nm).Acl.put(ACL='public-read')
 
-            
+
         print "Deployment Complete!"
         # push the confirmation email
         topic.publish(Subject="New Portfolio Deployment", Message="Portfolio deployed successfully")
