@@ -7,6 +7,6 @@ artifacts:
   files:
     - index.html
     - favicon.ico
-    - JohnLaffeyResume.docx
+    - JohnLaffeyResume.pdf
     - styles/main.css
     - images/*
